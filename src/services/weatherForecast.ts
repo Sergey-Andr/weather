@@ -73,6 +73,7 @@ export const useWeatherForecastQuery = ({
     lang = "ru",
     activeDay,
 }: IWeatherForecast) => {
+    console.log(name);
     return useQuery({
         queryKey: weatherKey(name, units, lang),
         queryFn: () =>
@@ -82,7 +83,6 @@ export const useWeatherForecastQuery = ({
                 lang: lang,
             }),
         select: (data: any): IWeatherData => {
-            console.log(name);
             const currentSixDays = data.list.reduce(
                 (
                     acc: any[],
