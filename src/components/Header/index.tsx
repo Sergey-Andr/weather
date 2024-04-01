@@ -1,4 +1,5 @@
 import { memo, ReactElement } from "react";
+import * as logo from "@/../public/logo.svg";
 import SearchCity from "@/components/Header/components/SearchCity";
 import SwitchThemeMode from "@/components/Header/components/SwitchThemeMode";
 import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
@@ -19,6 +20,7 @@ import {
     selectSettingsTime,
     useSetSettingsActions,
 } from "@/store/settingsStore.ts";
+import { HiLocationMarker, HiViewGrid } from "react-icons/hi";
 
 const Header = (): ReactElement => {
     const searchedCity = selectSearchedCity();
@@ -28,18 +30,10 @@ const Header = (): ReactElement => {
     return (
         <div className="pt-4 mb-4 flex items-center justify-between">
             <div className="flex items-center">
-                <img
-                    src="../../../public/logo.svg"
-                    alt="logo"
-                    className="w-[220px] mr-8"
-                />
+                <img src={logo.default} alt="logo" className="w-[220px] mr-8" />
 
                 <div className="w-40 h-10 px-4 mr-16 bg-subDefault rounded-full flex items-center justify-center">
-                    <img
-                        src="../../../public/marker.svg"
-                        alt="marker"
-                        className="w-5 h-5 mr-2"
-                    />
+                    <HiLocationMarker className="w-5 h-5 mr-2 fill-white" />
                     <span className="text-white flex font-semibold">
                         {searchedCity.split(",")[0]}
                         <p className="text-white font-normal">
@@ -54,11 +48,7 @@ const Header = (): ReactElement => {
                 <Popover>
                     <PopoverTrigger>
                         <div className="flex items-center justify-center w-10 h-10 bg-subDefault rounded-full cursor-pointer">
-                            <img
-                                src="../../../public/grid.svg"
-                                alt="setting"
-                                className="h-5 w-5"
-                            />
+                            <HiViewGrid className="h-5 w-5 fill-white" />
                         </div>
                     </PopoverTrigger>
                     <PopoverContent className="bg-subDefault border-none text-white">

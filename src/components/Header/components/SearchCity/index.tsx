@@ -1,4 +1,5 @@
 import { memo, ReactElement, useState } from "react";
+import * as zoomPath from "@/../public/zoom.svg";
 import { Input } from "@/components/ui/input.tsx";
 import { useWeatherGeoQuery } from "@/services/weatherGeo.ts";
 import { FaXmark } from "react-icons/fa6";
@@ -37,7 +38,7 @@ const SearchCity = (): ReactElement => {
         <div className="relative mr-20">
             <div className="relative w-fit h-fit">
                 <img
-                    src="../../../../../public/zoom.svg"
+                    src={zoomPath.default}
                     alt="zoom icon"
                     className="w-5 h-5 absolute top-2.5 left-4 "
                 />
