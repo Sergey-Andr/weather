@@ -6,6 +6,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip.tsx";
+import { selectTheme } from "@/store/themeStore.ts";
 
 interface IRightColumn {
     icon: string;
@@ -20,6 +21,7 @@ const RightColumn: FC<IRightColumn> = ({
     windDeg,
     description,
 }): ReactElement => {
+    const theme = selectTheme();
     return (
         <div>
             <Tooltip>
@@ -30,22 +32,22 @@ const RightColumn: FC<IRightColumn> = ({
                         className="w-24 h-24 relative top-[-1rem] mb-2"
                     />
                 </TooltipTrigger>
-                <TooltipContent className="bg-subDefault text-white border-none">
+                <TooltipContent
+                    className={`${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} text-white border-none`}
+                >
                     {description}
                 </TooltipContent>
             </Tooltip>
             <div className="mb-2 text-md flex items-end">
                 Wind
-                <p className="text-sm text-edgeCalendarDays ml-1">speed:</p>
+                <p className="text-sm text-subText ml-1">speed:</p>
                 <span className="font-semibold">
                     {"\u00A0" + Math.floor(windSpeed)}
                 </span>
             </div>
             <div className="text-md flex items-end">
                 Wind
-                <p className="text-sm text-edgeCalendarDays ml-1">
-                    deg:{"\u00A0"}
-                </p>
+                <p className="text-sm text-subText ml-1">deg:{"\u00A0"}</p>
                 <span className="font-semibold">
                     <FaArrowUp
                         style={{

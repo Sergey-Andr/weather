@@ -7,8 +7,10 @@ import {
     prepareData,
     TWeatherData,
 } from "@/components/ActiveDayInfo/feature";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const Pressure = (): ReactElement => {
+    const theme = selectTheme();
     const activeDayData = selectActiveDayData();
     const { weatherValues, time } = prepareData({
         data: activeDayData,
@@ -24,6 +26,7 @@ const Pressure = (): ReactElement => {
                     name: "Pressure mm",
                     customCategories: time,
                     color: "#b97d1c",
+                    theme: theme,
                 })}
             />
         </div>

@@ -9,12 +9,16 @@ import {
 import { memo, ReactElement } from "react";
 import { FaArrowUp } from "react-icons/fa6";
 import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const WeatherActiveDayData = (): ReactElement => {
     const activeDayData = selectActiveDayData();
+    const theme = selectTheme();
     return (
         <Table>
-            <TableHeader className="bg-subDefault">
+            <TableHeader
+                className={`${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
+            >
                 <TableRow>
                     <TableHead className="w-[100px]"></TableHead>
                     {activeDayData.map((day) => (

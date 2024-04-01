@@ -3,11 +3,13 @@ export const options = ({
     customCategories,
     color,
     temp,
+    theme,
 }: {
     charts: number[];
     customCategories: string[];
     color: string;
     temp: string;
+    theme: string;
 }) => {
     return {
         chart: {
@@ -24,7 +26,7 @@ export const options = ({
                 dataLabels: {
                     enabled: true,
                     style: {
-                        color: "#c5c5c5",
+                        color: theme === "dark" ? "#c5c5c5" : "#646464",
                         fontSize: "14px",
                         textOutline: "none",
                     },
@@ -75,9 +77,6 @@ export const options = ({
                         } else {
                             return this.y ? `${this.y}°` : `${this.y}°`;
                         }
-                    },
-                    style: {
-                        fontSize: temp === "F" ? "14px" : "15px",
                     },
                 },
             },

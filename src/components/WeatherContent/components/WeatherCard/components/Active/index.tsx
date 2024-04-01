@@ -16,7 +16,10 @@ const Active: FC<IActive> = ({ day }): ReactElement => {
 
     return (
         <>
-            <div className="w-full h-12 bg-cardsHeader px-4 pt-1 rounded-t-3xl flex items-center whitespace-nowrap justify-between font-bold text-xl">
+            <div
+                className={`w-full h-12 bg-cardsHeader px-4 pt-1 rounded-t-3xl flex items-center whitespace-nowrap 
+                    justify-between font-bold text-xl`}
+            >
                 <p className="mr-2 whitespace-nowrap">{dayWeek}</p>
                 <p>{currentTime}</p>
             </div>

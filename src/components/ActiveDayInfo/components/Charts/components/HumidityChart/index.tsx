@@ -7,8 +7,10 @@ import {
     prepareData,
     TWeatherData,
 } from "@/components/ActiveDayInfo/feature";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const Humidity = (): ReactElement => {
+    const theme = selectTheme();
     const activeDayData = selectActiveDayData();
     const { weatherValues, time } = prepareData({
         data: activeDayData,
@@ -24,6 +26,7 @@ const Humidity = (): ReactElement => {
                     name: "Humidity %",
                     customCategories: time,
                     color: "#15803D",
+                    theme: theme,
                 })}
             />
         </div>

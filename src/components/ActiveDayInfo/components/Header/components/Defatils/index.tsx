@@ -9,8 +9,10 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip.tsx";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const Details = (): ReactElement => {
+    const theme = selectTheme();
     const activeDayData = selectActiveDayData();
     return (
         <div className="flex w-full justify-around items-center">
@@ -27,7 +29,9 @@ const Details = (): ReactElement => {
                             />
                         </TooltipTrigger>
                     </div>
-                    <TooltipContent className="bg-subDefault text-md border-skeleton">
+                    <TooltipContent
+                        className={`${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} text-md border-skeleton`}
+                    >
                         {activeDayData[0].weather[0].main}
                     </TooltipContent>
                 </Tooltip>

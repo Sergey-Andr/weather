@@ -6,7 +6,11 @@ const SwitchThemeMode = (): ReactElement => {
     const theme = selectTheme();
     const { setTheme } = useSetThemeActions();
     return (
-        <div className="w-[80px] h-[40px] mr-6 relative bg-subDefault rounded-full">
+        <div
+            className={`w-[80px] h-[40px] mr-6 relative rounded-full
+                ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}
+                `}
+        >
             <div
                 className={`absolute ${theme === "bright" ? "translate-x-[0.11rem]" : "translate-x-[2.6rem]"}  duration-500 transition-all top-0.5 bg-brightSubDefault h-9 w-9 rounded-full`}
             />

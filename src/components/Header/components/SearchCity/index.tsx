@@ -1,12 +1,14 @@
 import { memo, ReactElement, useState } from "react";
-import * as zoomPath from "@/../public/zoom.svg";
+import { zoomIcon } from "../../../../../public/zoom.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { useWeatherGeoQuery } from "@/services/weatherGeo.ts";
 import { FaXmark } from "react-icons/fa6";
 import { useSetSearchedCityActions } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const SearchCity = (): ReactElement => {
     const { setSearchedCity } = useSetSearchedCityActions();
+    const theme = selectTheme();
 
     const [cityName, setCityName] = useState("");
     const [debounceRequestName, setDebounceRequestName] = useState("");
@@ -37,13 +39,11 @@ const SearchCity = (): ReactElement => {
     return (
         <div className="relative mr-20">
             <div className="relative w-fit h-fit">
-                <img
-                    src={zoomPath.default}
-                    alt="zoom icon"
-                    className="w-5 h-5 absolute top-2.5 left-4 "
-                />
+                {zoomIcon(
+                    `w-5 h-5 absolute top-2.5 left-4 ${theme === "dark" ? "stroke-white" : "stroke-black"}`,
+                )}
                 <Input
-                    className="w-[320px] h-[28px] bg-subDefault rounded-full text-[#707070] border-none p-5 pl-11"
+                    className={`w-[320px] h-[28px] font-medium rounded-full border-none p-5 pl-11 ${theme === "dark" ? "bg-subDefault text-[#707070]" : "bg-subDefaultBrightMode text-textBrightMode"}`}
                     placeholder="Search city..."
                     value={cityName}
                     onChange={(e) => handleInputChange(e.target.value, 300)}
@@ -60,8 +60,9 @@ const SearchCity = (): ReactElement => {
                     }}
                 />
                 <FaXmark
-                    className={`fill-white absolute top-1 right-1 w-8 h-8 p-2 cursor-pointer rounded-full
-                     ${cityName ? "opacity-100" : "hidden"} hover:bg-brightSubDefault
+                    className={`absolute top-1 right-1 w-8 h-8 p-2 cursor-pointer rounded-full
+                     ${cityName ? "opacity-100" : "hidden"} hover:bg-brightSubDefault 
+                     ${theme === "dark" ? "fill-white" : "fill-textBrightMode"}
                     `}
                     onClick={() => {
                         setCityName("");
@@ -71,9 +72,9 @@ const SearchCity = (): ReactElement => {
             </div>
             {place ? (
                 <div
-                    className={`absolute z-10 w-[320px] h-[28px] rounded-full text-slate-300 border-none p-4 mt-2 flex items-center
-                    hover:bg-brightSubDefault hover:text-subDefault
-                    cursor-pointer bg-subDefault`}
+                    className={`absolute z-10 w-[320px] h-[28px] rounded-full border-none p-4 mt-2 flex items-center
+                    hover:bg-brightSubDefault cursor-pointer
+                    ${theme === "dark" ? "bg-subDefault text-slate-300 hover:text-subDefault" : "bg-subDefaultBrightMode text-black"}`}
                     onClick={() => {
                         data
                             ? setSearchedCity(

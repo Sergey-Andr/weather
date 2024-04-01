@@ -5,11 +5,13 @@ export const options = ({
     name,
     customCategories,
     color,
+    theme,
 }: {
     charts: number[];
     name: "Temperature" | "Pressure mm" | "Humidity %" | "Wind";
     customCategories: string[];
     color: string;
+    theme: string;
 }) => {
     return {
         chart: {
@@ -26,7 +28,7 @@ export const options = ({
                 dataLabels: {
                     enabled: true,
                     style: {
-                        color: "#c5c5c5",
+                        color: theme === "dark" ? "#c5c5c5" : "#000",
                         fontSize: "14px",
                         textOutline: "none",
                     },

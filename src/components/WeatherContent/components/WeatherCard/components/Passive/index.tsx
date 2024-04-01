@@ -7,18 +7,22 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip.tsx";
+import { selectTheme } from "@/store/themeStore.ts";
 
 interface IPassive {
     day: IWeatherDay;
 }
 
 const Passive: FC<IPassive> = ({ day }): ReactElement => {
+    const theme = selectTheme();
     const dayWeek = moment(day.dt_txt).format("ddd");
 
     return (
         <>
             <div className="flex flex-col items-center">
-                <p className="text-white font-semibold border-b-2 border-skeleton pb-4 text-2xl mb-4">
+                <p
+                    className={`${theme === "dark" ? "text-white" : "text-black"} font-semibold border-b-2 ${theme === "dark" ? "border-skeleton" : "border-white"}  pb-4 text-2xl mb-4`}
+                >
                     {dayWeek}
                 </p>
                 <Tooltip>
@@ -29,12 +33,16 @@ const Passive: FC<IPassive> = ({ day }): ReactElement => {
                             className="w-20 relative top-[-1rem] mb-2"
                         />
                     </TooltipTrigger>
-                    <TooltipContent className="bg-subDefault text-white border-none">
+                    <TooltipContent
+                        className={`${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} ${theme === "dark" ? "text-white" : "text-black"} font-medium border-none`}
+                    >
                         {day.weather[0].description}
                     </TooltipContent>
                 </Tooltip>
             </div>
-            <p className="text-white text-2xl font-semibold relative top-[-1rem]">
+            <p
+                className={`text-2xl font-semibold relative top-[-1rem] ${theme === "dark" ? "text-white" : "text-black"}`}
+            >
                 {day.maxTemperature ? "+" : "-"}
                 {Math.floor(day.maxTemperature)}°
             </p>

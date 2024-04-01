@@ -6,12 +6,14 @@ import {
 } from "@/components/WeatherContent/store/useDaysValue.ts";
 import Passive from "@/components/WeatherContent/components/WeatherCard/components/Passive";
 import Active from "@/components/WeatherContent/components/WeatherCard/components/Active";
+import { selectTheme } from "@/store/themeStore.ts";
 
 interface IWeatherCard {
     day: IWeatherDay;
 }
 
 const WeatherCard: FC<IWeatherCard> = ({ day }): ReactElement => {
+    const theme = selectTheme();
     const { setActiveDay } = useSetDaysActions();
     const activeDay = selectActiveDay();
 
@@ -21,7 +23,7 @@ const WeatherCard: FC<IWeatherCard> = ({ day }): ReactElement => {
         >
             {day.dt_txt.slice(8, 10) !== activeDay ? (
                 <div
-                    className={`flex flex-col items-center justify-between w-full h-full bg-subDefault rounded-3xl py-3 cursor-pointer transition-all duration-1000`}
+                    className={`flex flex-col items-center justify-between w-full h-full  ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} rounded-3xl py-3 cursor-pointer transition-all`}
                     onClick={() => {
                         setActiveDay(day.dt_txt.slice(8, 10));
                     }}

@@ -1,8 +1,10 @@
 import { memo, ReactElement } from "react";
 import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
 import moment from "moment/moment";
+import { selectTheme } from "@/store/themeStore.ts";
 
 const SurfaceInfo = (): ReactElement => {
+    const theme = selectTheme();
     const activeDayData = selectActiveDayData();
     const date = moment
         .unix(activeDayData[0].dt)
@@ -12,7 +14,11 @@ const SurfaceInfo = (): ReactElement => {
         <div className="flex m-5 min-w-[300px] items-center justify-center">
             <p className="text-5xl mr-4">{date[0]}</p>
             <div>
-                <p className="text-lg text-minMaxTemp">{date[1]}</p>
+                <p
+                    className={`text-lg ${theme === "dark" ? "text-minMaxTemp" : "text-skeletonBrightMode"} `}
+                >
+                    {date[1]}
+                </p>
                 <p className="text-xl font-semibold">{date[2]}</p>
             </div>
         </div>
