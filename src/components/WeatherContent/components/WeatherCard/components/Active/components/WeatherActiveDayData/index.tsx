@@ -5,7 +5,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table.tsx";
 import { memo, ReactElement } from "react";
 import { FaArrowUp } from "react-icons/fa6";
 import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";

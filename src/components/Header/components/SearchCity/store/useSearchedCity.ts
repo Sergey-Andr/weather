@@ -16,7 +16,7 @@ const useSearchedCityStore = createStore(
     (
         set: (actions: IUseSearchedCityContent) => void,
     ): IUseSearchedCityStore => ({
-        searchedCity: "Kherson",
+        searchedCity: "Kherson, UA",
         actions: {
             setSearchedCity: (searchedCity) => set({ searchedCity }),
         },

@@ -9,7 +9,7 @@ interface IDefaultLayout {
 const DefaultLayout: FC<IDefaultLayout> = ({ children }): ReactElement => {
     return (
         <div className="max-w-dvw min-h-dvh h-full bg-default">
-            <div className="w-[1120px] h-full m-auto">
+            <div className="w-[1115px] h-full pt-5 m-auto">
                 <Header />
                 <SubHeader />
                 {children}

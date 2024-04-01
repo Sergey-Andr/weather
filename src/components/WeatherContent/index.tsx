@@ -1,39 +1,23 @@
-import { memo, ReactElement, useCallback } from "react";
+import { memo, ReactElement } from "react";
 import { useWeatherForecastQuery } from "@/services/weatherForecast.ts";
-import WeatherCard from "@/components/WeatherContent/components/WeatherCard";
-import moment from "moment/moment";
-import {
-    selectActiveDay,
-    selectDaysValue,
-    useSetDaysActions,
-} from "@/components/WeatherContent/store/useDaysValue.ts";
-import { useDailyEvent } from "@daily-co/daily-react";
-import WeatherActiveDayData from "@/components/WeatherContent/components/WeatherCard/components/WeatherActiveDayData";
+import { selectActiveDay } from "@/components/WeatherContent/store/useDaysValue.ts";
 import Loader from "@/components/WeatherContent/components/Loader";
 import { useSetActiveDayDataActions } from "@/components/WeatherContent/store/useActiveDayData.ts";
 import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
+import WeatherCard from "@/components/WeatherContent/components/WeatherCard";
+import WeatherMap from "@/components/WeatherContent/components/WeatherMap";
+import WeatherChart from "@/components/WeatherContent/components/WeatherChart";
+import { selectSettingsTemperature } from "@/store/settingsStore.ts";
 
 const WeatherContent = (): ReactElement => {
-    const daysValue = selectDaysValue();
     const activeDay = selectActiveDay();
     const searchedCity = selectSearchedCity();
-    const { setActiveDay } = useSetDaysActions();
     const { setActiveDayData } = useSetActiveDayDataActions();
-
-    useDailyEvent(
-        "joined-meeting",
-        useCallback(() => {
-            setActiveDay(moment().add(1, "days").format("dd"));
-        }, []),
-    );
-
-    const days = [];
-    for (let i = 0; i < daysValue; i++)
-        days.push(moment().add(i, "day").format("DD"));
+    const temperature = selectSettingsTemperature();
 
     const { data, isLoading } = useWeatherForecastQuery({
-        name: searchedCity,
-        lang: "en",
+        name: searchedCity.split(",")[0],
+        units: temperature === "C" ? "metric" : "standart",
         activeDay: activeDay,
     });
 
@@ -45,13 +29,16 @@ const WeatherContent = (): ReactElement => {
 
     return (
         <div>
-            <div className="flex">
-                {weather.currentSixDays.map((day) => (
-                    <WeatherCard key={day.dt} day={day} />
-                ))}
+            <div className="flex justify-between w-full h-[245px] mb-8">
+                <div className="flex justify-between min-w-[800px] mr-4">
+                    {weather.currentSixDays.map((day) => (
+                        <WeatherCard key={day.dt} day={day} />
+                    ))}
+                </div>
+                <WeatherChart />
             </div>
-            <div className="w-full border-skeleton border-2 h-fit">
-                <WeatherActiveDayData />
+            <div className="w-full h-fit">
+                <WeatherMap />
             </div>
         </div>
     );

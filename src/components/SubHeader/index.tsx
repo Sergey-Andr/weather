@@ -1,57 +1,62 @@
-import {
-    selectDaysValue,
-    useSetDaysActions,
-} from "@/components/WeatherContent/store/useDaysValue.ts";
 import { memo, ReactElement } from "react";
-import { FIVE_DAYS, TODAY, TOMMOROW } from "@/components/SubHeader/constants";
-import { Button } from "@/components/ui/button.tsx";
-import { Link } from "react-router-dom";
-import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SubHeader = (): ReactElement => {
-    const daysValue = selectDaysValue();
-    const searchedCity = selectSearchedCity();
-    const { setDaysValue } = useSetDaysActions();
-
+    const { pathname } = useLocation();
     return (
-        <div className="text-white flex items-center justify-between mb-4">
-            <p className="text-2xl font-bold">Weather in {searchedCity}</p>
-            <div className="flex">
-                <Link to={"/weather/current_day"}>
-                    <Button
-                        className={`hover:underline cursor-pointer text-lg ${daysValue === TODAY ? "text-blue-500" : ""}`}
-                        onClick={() => {
-                            if (daysValue !== TODAY) {
-                                setDaysValue(TODAY);
-                            }
+        <div className={`w-[800px] h-12 flex items-center mb-4`}>
+            <div className="w-[160px] h-12 relative flex items-center left-[calc(100%-160px)]">
+                <motion.div
+                    className={`absolute top-[0.35rem] bg-brightSubDefault h-10 w-24 rounded-full`}
+                    initial={{
+                        translateX: pathname !== "/" ? "-1.2rem" : "4.65rem",
+                    }}
+                    animate={{
+                        translateX: pathname === "/" ? "-1.2rem" : "4.65rem",
+                    }}
+                    transition={{
+                        duration: 0.5,
+                    }}
+                />
+
+                <Link
+                    to={"/"}
+                    className={`absolute top-1/4 left-0 ${pathname === "/" ? "text-subDefault font-semibold" : "text-white"}`}
+                >
+                    <motion.p
+                        initial={{
+                            color: pathname !== "/" ? "#1b1b1d" : "#fff",
+                            fontWeight: pathname !== "/" ? "600" : "500",
+                        }}
+                        animate={{
+                            color: pathname === "/" ? "#1b1b1d" : "#fff",
+                            fontWeight: pathname === "/" ? "600" : "500",
                         }}
                     >
-                        Today
-                    </Button>
+                        Forecast
+                    </motion.p>
                 </Link>
-                <Link to={"/"}>
-                    <Button
-                        className={`hover:underline cursor-pointer text-lg ${daysValue === TOMMOROW ? "text-blue-500" : ""}`}
-                        onClick={() => {
-                            if (daysValue !== TOMMOROW) {
-                                setDaysValue(TOMMOROW);
-                            }
+                <Link
+                    to={"/more_info"}
+                    className={`absolute top-1/4 right-0 ${pathname === "/more_info" ? "text-subDefault font-semibold" : "text-white"}`}
+                >
+                    <motion.p
+                        initial={{
+                            color:
+                                pathname !== "/more_info" ? "#1b1b1d" : "#fff",
+                            fontWeight:
+                                pathname !== "/more_info" ? "600" : "500",
+                        }}
+                        animate={{
+                            color:
+                                pathname === "/more_info" ? "#1b1b1d" : "#fff",
+                            fontWeight:
+                                pathname === "/more_info" ? "600" : "500",
                         }}
                     >
-                        Tommorow
-                    </Button>
-                </Link>
-                <Link to={"/"}>
-                    <Button
-                        className={`hover:underline cursor-pointer text-lg ${daysValue === FIVE_DAYS ? "text-blue-500" : ""}`}
-                        onClick={() => {
-                            if (daysValue !== FIVE_DAYS) {
-                                setDaysValue(FIVE_DAYS);
-                            }
-                        }}
-                    >
-                        5 Days
-                    </Button>
+                        More Info
+                    </motion.p>
                 </Link>
             </div>
         </div>

@@ -5,7 +5,7 @@ export interface IWeatherData {
     data: any;
 }
 
-const weatherKey = (...props: any) => ["weather10days", ...props];
+const weatherKey = (...props: any) => ["weatherGeo", ...props];
 
 const weatherFn = (name: string) => {
     return Api.get(

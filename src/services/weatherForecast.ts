@@ -70,10 +70,9 @@ const weatherFn = ({ name, units, lang }: any) => {
 export const useWeatherForecastQuery = ({
     name,
     units = "metric",
-    lang = "ru",
+    lang = "en",
     activeDay,
 }: IWeatherForecast) => {
-    console.log(name);
     return useQuery({
         queryKey: weatherKey(name, units, lang),
         queryFn: () =>

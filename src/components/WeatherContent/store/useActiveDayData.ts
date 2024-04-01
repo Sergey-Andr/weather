@@ -22,7 +22,7 @@ const useActiveDayDataStore = createStore(
             setActiveDayData: (activeDayData) => set({ activeDayData }),
         },
     }),
-    "session_day_data",
+    "activeDayData",
     true,
     "session",
 );

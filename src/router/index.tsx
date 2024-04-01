@@ -10,7 +10,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/" element={<Main />} />
-            <Route path="/weather/current_day" element={<CurrentDay />} />
+            <Route path="/more_info" element={<CurrentDay />} />
         </>,
     ),
 );
