@@ -44,6 +44,7 @@ const Settings = (): ReactElement => {
                         <div className="grid grid-cols-3 items-center gap-4">
                             <label>Temperature</label>
                             <Select
+                                value={temperature}
                                 onValueChange={(e) => {
                                     setTemperature(e);
                                 }}
@@ -51,12 +52,10 @@ const Settings = (): ReactElement => {
                                 <SelectTrigger
                                     className={`w-[130px] border-none font-medium ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
                                 >
-                                    <SelectValue
-                                        placeholder={`${temperature === "C" ? "Celsius, °С" : "Fahrenheit, °F"}`}
-                                    />
+                                    <SelectValue placeholder="Temperature" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    className={`w-[150px] border-none text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
+                                    className={`w-[150px] rounded-2xl text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode border-skeletonBrightMode"}`}
                                 >
                                     <SelectItem
                                         value={"C"}
@@ -76,6 +75,7 @@ const Settings = (): ReactElement => {
                         <div className="grid grid-cols-3 items-center gap-4">
                             <label>Format</label>
                             <Select
+                                value={time}
                                 onValueChange={(e) => {
                                     setTime(e);
                                 }}
@@ -83,12 +83,10 @@ const Settings = (): ReactElement => {
                                 <SelectTrigger
                                     className={`w-[100px] border-none ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} font-medium`}
                                 >
-                                    <SelectValue
-                                        placeholder={`${time === "12" ? "12-hour" : "24-hour"}`}
-                                    />
+                                    <SelectValue placeholder="Format" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    className={`w-[90px] border-none text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
+                                    className={`w-[90px] rounded-2xl text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode border-skeletonBrightMode"}`}
                                 >
                                     <SelectItem
                                         value={"24"}

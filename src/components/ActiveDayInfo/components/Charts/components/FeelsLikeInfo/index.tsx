@@ -1,4 +1,4 @@
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { memo, ReactElement } from "react";
 import { prepareData, TWeatherData } from "@/components/ActiveDayInfo/feature";
 import { selectTheme } from "@/store/themeStore.ts";

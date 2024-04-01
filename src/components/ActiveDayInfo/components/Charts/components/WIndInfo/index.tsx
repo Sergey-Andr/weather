@@ -1,4 +1,4 @@
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { FaArrowUp } from "react-icons/fa6";
 import { memo, ReactElement } from "react";
 import { prepareData, TWindData } from "@/components/ActiveDayInfo/feature";

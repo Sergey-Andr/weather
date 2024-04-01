@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/table.tsx";
 import { memo, ReactElement } from "react";
 import { FaArrowUp } from "react-icons/fa6";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { selectTheme } from "@/store/themeStore.ts";
 
 const WeatherActiveDayData = (): ReactElement => {

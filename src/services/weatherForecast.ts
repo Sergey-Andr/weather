@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import Api from "@/api/api.ts";
-import { IUseDaysValueContent } from "@/components/WeatherContent/store/useDaysValue.ts";
+import { IUseDaysValueContent } from "@/components/WeatherContent/store/useDaysValueStore.ts";
 
 export interface IWeatherDay {
     clouds: {

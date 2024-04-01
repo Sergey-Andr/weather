@@ -3,7 +3,7 @@ import { zoomIcon } from "../../../../../public/zoom.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { useWeatherGeoQuery } from "@/services/weatherGeo.ts";
 import { FaXmark } from "react-icons/fa6";
-import { useSetSearchedCityActions } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
+import { useSetSearchedCityActions } from "@/components/Header/components/SearchCity/store/useSearchedCityStore.ts";
 import { selectTheme } from "@/store/themeStore.ts";
 
 const SearchCity = (): ReactElement => {

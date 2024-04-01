@@ -1,7 +1,7 @@
 import { memo, ReactElement } from "react";
 import { weatherIcon } from "@/features/weatherIcon.ts";
 import Thermometer from "@/components/ActiveDayInfo/components/Header/components/Defatils/components/Thermometer";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import Temperature from "@/components/ActiveDayInfo/components/Header/components/Defatils/components/Temperature";
 import Description from "@/components/ActiveDayInfo/components/Header/components/Defatils/components/Description";
 import {

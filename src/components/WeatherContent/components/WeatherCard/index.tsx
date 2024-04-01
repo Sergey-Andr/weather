@@ -3,7 +3,7 @@ import { IWeatherDay } from "@/services/weatherForecast.ts";
 import {
     selectActiveDay,
     useSetDaysActions,
-} from "@/components/WeatherContent/store/useDaysValue.ts";
+} from "@/components/WeatherContent/store/useDaysValueStore.ts";
 import Passive from "@/components/WeatherContent/components/WeatherCard/components/Passive";
 import Active from "@/components/WeatherContent/components/WeatherCard/components/Active";
 import { selectTheme } from "@/store/themeStore.ts";

@@ -1,5 +1,5 @@
 import { memo, ReactElement } from "react";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import moment from "moment/moment";
 import { selectTheme } from "@/store/themeStore.ts";
 

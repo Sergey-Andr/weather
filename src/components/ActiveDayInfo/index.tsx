@@ -1,9 +1,9 @@
 import { memo, ReactElement } from "react";
 import ActiveDayCharts from "@/components/ActiveDayInfo/components/Charts";
 import Header from "@/components/ActiveDayInfo/components/Header";
-import { selectActiveDay } from "@/components/WeatherContent/store/useDaysValue.ts";
-import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
-import { useSetActiveDayDataActions } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDay } from "@/components/WeatherContent/store/useDaysValueStore.ts";
+import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCityStore.ts";
+import { useSetActiveDayDataActions } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { useWeatherForecastQuery } from "@/services/weatherForecast.ts";
 import Loader from "@/components/WeatherContent/components/Loader";
 import { selectSettingsTemperature } from "@/store/settingsStore.ts";

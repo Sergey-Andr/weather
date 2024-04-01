@@ -2,7 +2,7 @@ import { memo, ReactElement } from "react";
 import * as logo from "@/../public/logo.svg";
 import SearchCity from "@/components/Header/components/SearchCity";
 import SwitchThemeMode from "@/components/Header/components/SwitchThemeMode";
-import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCity.ts";
+import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCityStore.ts";
 import { HiLocationMarker } from "react-icons/hi";
 import { selectTheme } from "@/store/themeStore.ts";
 import Settings from "@/components/Header/components/Settings";

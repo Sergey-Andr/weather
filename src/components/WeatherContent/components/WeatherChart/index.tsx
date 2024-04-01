@@ -1,7 +1,7 @@
 import { memo, ReactElement } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { options } from "@/components/WeatherContent/components/WeatherChart/feature";
 import { selectSettingsTemperature } from "@/store/settingsStore.ts";
 import { selectTheme } from "@/store/themeStore.ts";

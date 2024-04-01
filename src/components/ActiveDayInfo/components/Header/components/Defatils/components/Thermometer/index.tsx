@@ -1,6 +1,6 @@
 import { memo, ReactElement } from "react";
 import { Progress } from "@/components/ui/progress.tsx";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { findDiffDays } from "@/components/ActiveDayInfo/components/Header/components/Defatils/feature";
 
 const MIN_TEMP = -40;

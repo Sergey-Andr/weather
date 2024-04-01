@@ -1,6 +1,6 @@
 import { memo, ReactElement } from "react";
 import { IoManOutline } from "react-icons/io5";
-import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayData.ts";
+import { selectActiveDayData } from "@/components/WeatherContent/store/useActiveDayDataStore.ts";
 import { findDiffDays } from "@/components/ActiveDayInfo/components/Header/components/Defatils/feature";
 import { selectSettingsTemperature } from "@/store/settingsStore.ts";
 import { selectTheme } from "@/store/themeStore.ts";

@@ -37,7 +37,7 @@ module.exports = {
                 defaultBrightMode: "#EAEEEF",
                 subDefaultBrightMode: "#aecadf",
                 textBrightMode: "#4F6C77",
-                skeletonBrightMode: "#4F6C77",
+                skeletonBrightMode: "#F6E8DA",
 
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
