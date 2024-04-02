@@ -1,11 +1,11 @@
 import { memo, ReactElement } from "react";
-import * as logo from "@/../public/logo.svg";
 import SearchCity from "@/components/Header/components/SearchCity";
 import SwitchThemeMode from "@/components/Header/components/SwitchThemeMode";
 import { selectSearchedCity } from "@/components/Header/components/SearchCity/store/useSearchedCityStore.ts";
 import { HiLocationMarker } from "react-icons/hi";
 import { selectTheme } from "@/store/themeStore.ts";
 import Settings from "@/components/Header/components/Settings";
+import { logo } from "../../../public/logo.tsx";
 
 const Header = (): ReactElement => {
     const searchedCity = selectSearchedCity();
@@ -13,8 +13,11 @@ const Header = (): ReactElement => {
     return (
         <div className="pt-4 mb-12 flex items-center justify-between">
             <div className="flex items-center">
-                <img src={logo.default} alt="logo" className="w-[220px] mr-8" />
-
+                {logo(
+                    theme === "dark" ? "#D4DBE2" : "#A7C4D4",
+                    theme === "dark" ? "#7B7C81" : "#9EABB3",
+                    "w-56 mr-8",
+                )}
                 <div
                     className={`w-40 h-10 px-4 mr-16 ${theme === "dark" ? "bg-subDefault text-white" : "bg-subDefaultBrightMode text-black"} rounded-full flex items-center justify-center`}
                 >

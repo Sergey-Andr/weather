@@ -23,7 +23,7 @@ const RightColumn: FC<IRightColumn> = ({
 }): ReactElement => {
     const theme = selectTheme();
     return (
-        <div>
+        <div className="text-subText">
             <Tooltip>
                 <TooltipTrigger>
                     <img
@@ -40,17 +40,18 @@ const RightColumn: FC<IRightColumn> = ({
             </Tooltip>
             <div className="mb-2 text-md flex items-end">
                 Wind
-                <p className="text-sm text-subText ml-1">speed:</p>
-                <span className="font-semibold">
+                <p className="text-sm ml-1">speed:</p>
+                <span className="font-semibold text-black">
                     {"\u00A0" + Math.floor(windSpeed)}
                 </span>
             </div>
             <div className="text-md flex items-end">
                 Wind
-                <p className="text-sm text-subText ml-1">deg:{"\u00A0"}</p>
+                <p className="text-sm ml-1">deg:{"\u00A0"}</p>
                 <span className="font-semibold">
                     <FaArrowUp
                         style={{
+                            color: "black",
                             rotate: `${windDeg}deg`,
                         }}
                     />

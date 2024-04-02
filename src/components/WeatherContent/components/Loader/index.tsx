@@ -40,13 +40,10 @@ const Loader: FC<ILoader> = ({ noData = false }): ReactElement => {
                         className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
                     />
                     <Skeleton
-                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8 mr-6`}
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8 mr-9`}
                     />
                 </div>
                 <div className="relative">
-                    <Skeleton
-                        className={`w-[150px] h-[25px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8 absolute top-[-3rem]`}
-                    />
                     <Skeleton
                         className={`w-[280px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8`}
                     />

@@ -23,27 +23,27 @@ const LeftColumn: FC<ILeftColumn> = ({
     const currentDay = moment().format("YYYY-MM-DD");
     const isCurrentDay = currentDay === dtTxt.slice(0, 9);
     return (
-        <div>
-            <p className="text-5xl font-semibold mb-6">
+        <div className="text-subText">
+            <p className="text-5xl text-black font-semibold mb-6">
                 {temp ? "+" : "-"}
                 {Math.floor(isCurrentDay ? temp : maxTemp)}°
                 <span className="font-normal">{temperature}</span>
             </p>
             <p className="mb-2 text-md">
                 Feels like: {feelsLike ? "+" : "-"}
-                <span className="font-semibold">
+                <span className="font-semibold text-black">
                     {Math.floor(isCurrentDay ? feelsLike : maxTemp)}°
                 </span>
             </p>
             <p className="mb-2 text-md">
                 Pressure:
-                <span className="font-semibold">
+                <span className="font-semibold text-black">
                     {"\u00A0" + Math.floor(pressure)}
                 </span>
             </p>
             <p className="text-md">
                 Humidity:
-                <span className="font-semibold">
+                <span className="font-semibold text-black">
                     {"\u00A0" + Math.floor(humidity)}%
                 </span>
             </p>
