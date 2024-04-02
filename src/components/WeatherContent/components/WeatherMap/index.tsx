@@ -22,8 +22,8 @@ const WeatherMap = (): ReactElement => {
             }
             const map = new google.maps.Map(mapRef.current, {
                 center: { lat: 40, lng: -10 },
-                zoom: 3,
-                minZoom: 3,
+                zoom: 2,
+                minZoom: 1,
                 styles: mapThemeDarkMode(theme),
             });
 
@@ -44,7 +44,10 @@ const WeatherMap = (): ReactElement => {
     return (
         <div className="flex flex-col w-full h-fit">
             <SelectLayer />
-            <div ref={mapRef} className="h-[420px] w-[1120px]"></div>
+            <div
+                ref={mapRef}
+                className="h-[420px] w-[1120px] rounded-2xl"
+            ></div>
         </div>
     );
 };

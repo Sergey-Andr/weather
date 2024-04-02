@@ -28,13 +28,13 @@ const Settings = (): ReactElement => {
         <Popover>
             <PopoverTrigger>
                 <div
-                    className={`flex items-center justify-center w-10 h-10 ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} rounded-full cursor-pointer`}
+                    className={`flex items-center justify-center w-10 h-10 border-2 ${theme === "dark" ? "bg-subDefault border-skeleton" : "bg-subDefaultBrightMode  border-skeletonBrightMode"} rounded-full cursor-pointer`}
                 >
                     <HiViewGrid className="h-5 w-5 fill-white" />
                 </div>
             </PopoverTrigger>
             <PopoverContent
-                className={`${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} border-none text-white`}
+                className={`${theme === "dark" ? "bg-subDefault text-white " : "bg-subDefaultBrightMode text-black"} w-60 border-none rounded-2xl`}
             >
                 <div className="b">
                     <div className="space-y-2">
@@ -50,22 +50,22 @@ const Settings = (): ReactElement => {
                                 }}
                             >
                                 <SelectTrigger
-                                    className={`w-[130px] border-none font-medium ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
+                                    className={`w-[130px] border-none font-semibold ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}`}
                                 >
                                     <SelectValue placeholder="Temperature" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    className={`w-[150px] rounded-2xl text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode border-skeletonBrightMode"}`}
+                                    className={`w-[150px] rounded-2xl ${theme === "dark" ? "bg-subDefault text-white" : "bg-subDefaultBrightMode  text-dark border-skeletonBrightMode"}`}
                                 >
                                     <SelectItem
                                         value={"C"}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer font-semibold"
                                     >
                                         Celsius, °С
                                     </SelectItem>
                                     <SelectItem
                                         value={"F"}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer font-semibold"
                                     >
                                         Fahrenheit, °F
                                     </SelectItem>
@@ -86,17 +86,17 @@ const Settings = (): ReactElement => {
                                     <SelectValue placeholder="Format" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    className={`w-[90px] rounded-2xl text-white ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode border-skeletonBrightMode"}`}
+                                    className={`w-[90px] rounded-2xl ${theme === "dark" ? "bg-subDefault text-white" : "bg-subDefaultBrightMode text-dark border-skeletonBrightMode"}`}
                                 >
                                     <SelectItem
                                         value={"24"}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer font-semibold"
                                     >
                                         24-hour
                                     </SelectItem>
                                     <SelectItem
                                         value={"12"}
-                                        className="cursor-pointer"
+                                        className="cursor-pointer font-semibold"
                                     >
                                         12-hour
                                     </SelectItem>

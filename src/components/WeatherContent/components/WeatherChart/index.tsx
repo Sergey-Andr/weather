@@ -13,9 +13,9 @@ const WeatherChart = (): ReactElement => {
     const time = activeDayData.map((el) => el.dt_txt.slice(11, 16));
     const temps = activeDayData.map((el) => Math.floor(el.main.temp));
     return (
-        <div className="w-full h-full relative">
+        <div className="w-full h-60">
             <p
-                className={`absolute ${theme === "dark" ? "text-white" : "text-black"} text-lg font-medium top-[-3.4rem]`}
+                className={`${theme === "dark" ? "text-white" : "text-black"} text-lg font-medium mb-4`}
             >
                 Temperature
             </p>

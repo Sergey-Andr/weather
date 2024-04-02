@@ -29,8 +29,8 @@ const WeatherContent = (): ReactElement => {
 
     return (
         <div>
-            <div className="flex justify-between w-full h-[245px] mb-8">
-                <div className="flex justify-between min-w-[800px] mr-4">
+            <div className="flex justify-between w-full h-60 mb-8">
+                <div className="flex justify-between min-w-[800px] mr-10">
                     {weather.currentSixDays.map((day) => (
                         <WeatherCard key={day.dt} day={day} />
                     ))}

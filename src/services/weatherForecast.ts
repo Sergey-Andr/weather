@@ -101,12 +101,28 @@ export const useWeatherForecastQuery = ({
                                     el.dt_txt.slice(8, 10),
                             )
                             .map((el: IWeatherDay) => el.main.temp);
-                        const maxTemperature = Math.max(...temperatures);
-                        const minTemperature = Math.min(...temperatures);
+                        const maxTemperature =
+                            units === "standart"
+                                ? Math.max(...temperatures) / 5
+                                : Math.max(...temperatures);
+                        const minTemperature =
+                            units === "standart"
+                                ? Math.min(...temperatures) / 5
+                                : Math.max(...temperatures);
                         acc.push({
                             ...item,
                             maxTemperature,
                             minTemperature,
+                            main:
+                                units === "standart"
+                                    ? {
+                                          ...item.main,
+                                          temp: item.main.temp / 5,
+                                          feels_like: item.main.feels_like / 5,
+                                          temp_max: item.main.temp_max / 5,
+                                          temp_min: item.main.temp_min / 5,
+                                      }
+                                    : { ...item.main },
                         });
                     }
                     return acc;
@@ -126,6 +142,16 @@ export const useWeatherForecastQuery = ({
                             ...item,
                             max: maxTemperature,
                             min: minTemperature,
+                            main:
+                                units === "standart"
+                                    ? {
+                                          ...item.main,
+                                          temp: item.main.temp / 5,
+                                          feels_like: item.main.feels_like / 5,
+                                          temp_max: item.main.temp_max / 5,
+                                          temp_min: item.main.temp_min / 5,
+                                      }
+                                    : { ...item.main },
                         };
                     } else {
                         return null;

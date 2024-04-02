@@ -1,6 +1,5 @@
 import { FC, ReactElement, ReactNode } from "react";
 import Header from "@/components/Header";
-import SubHeader from "@/components/SubHeader";
 import { selectTheme } from "@/store/themeStore.ts";
 
 interface IDefaultLayout {
@@ -15,7 +14,6 @@ const DefaultLayout: FC<IDefaultLayout> = ({ children }): ReactElement => {
         >
             <div className="w-[1115px] h-full pt-5 m-auto">
                 <Header />
-                <SubHeader />
                 {children}
             </div>
         </div>

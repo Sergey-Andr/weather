@@ -1,15 +1,19 @@
 import { FC, memo, ReactElement } from "react";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
+import { selectTheme } from "@/store/themeStore.ts";
 
 interface ILoader {
     noData?: boolean;
 }
 
 const Loader: FC<ILoader> = ({ noData = false }): ReactElement => {
+    const theme = selectTheme();
     if (noData) {
         return (
             <div>
-                <Skeleton className="w-[1120px] h-[488px] flex justify-center items-center text-white text-4xl">
+                <Skeleton
+                    className={`w-[1115px] h-[488px] flex justify-center items-center ${theme === "dark" ? "text-white" : "text-black"} text-4xl`}
+                >
                     No Data
                 </Skeleton>
             </div>
@@ -19,15 +23,42 @@ const Loader: FC<ILoader> = ({ noData = false }): ReactElement => {
     return (
         <div>
             <div className="flex">
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mr-2" />
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mr-2" />
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mr-2" />
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mr-2" />
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mr-2" />
-                <Skeleton className="w-[180px] h-[120px] bg-skeleton rounded-xl mb-8" />
+                <div className="flex">
+                    <Skeleton
+                        className={`w-[285px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
+                    />
+                    <Skeleton
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
+                    />
+                    <Skeleton
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
+                    />
+                    <Skeleton
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
+                    />
+                    <Skeleton
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mr-6`}
+                    />
+                    <Skeleton
+                        className={`w-[80px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8 mr-6`}
+                    />
+                </div>
+                <div className="relative">
+                    <Skeleton
+                        className={`w-[150px] h-[25px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8 absolute top-[-3rem]`}
+                    />
+                    <Skeleton
+                        className={`w-[280px] h-[205px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl mb-8`}
+                    />
+                    <Skeleton
+                        className={`w-[200px] h-[48px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-full mb-4 ml-auto`}
+                    />
+                </div>
             </div>
             <div>
-                <Skeleton className="w-[1120px] h-[320px] bg-skeleton rounded-xl" />
+                <Skeleton
+                    className={`w-[1120px] h-[420px] ${theme === "dark" ? "bg-skeleton" : "bg-subDefaultBrightMode"} rounded-xl`}
+                />
             </div>
         </div>
     );

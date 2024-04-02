@@ -7,15 +7,15 @@ const SwitchThemeMode = (): ReactElement => {
     const { setTheme } = useSetThemeActions();
     return (
         <div
-            className={`w-[80px] h-[40px] mr-6 relative rounded-full
-                ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"}
+            className={`w-20 h-9 mr-6 relative rounded-full border-2
+                ${theme === "dark" ? "bg-subDefault border-skeleton" : "bg-subDefaultBrightMode border-skeletonBrightMode"}
                 `}
         >
             <div
-                className={`absolute ${theme === "bright" ? "translate-x-[0.11rem]" : "translate-x-[2.6rem]"}  duration-500 transition-all top-0.5 bg-brightSubDefault h-9 w-9 rounded-full`}
+                className={`absolute ${theme === "bright" ? "translate-x-[0.11rem]" : "translate-x-[2.4rem]"}  duration-500 transition-all bg-brightSubDefault h-9 w-9 top-[-0.1rem] rounded-full`}
             />
             <button
-                className={`absolute  top-0.5 left-0.5 w-9 h-9 rounded-full flex items-center justify-center transition-all
+                className={`absolute top-[-0.1rem] left-0.5 w-9 h-9 rounded-full flex items-center justify-center transition-all
                      ${theme === "bright" ? "" : "text-brightSubDefault"}`}
                 onClick={() => {
                     setTheme("bright");
@@ -24,7 +24,7 @@ const SwitchThemeMode = (): ReactElement => {
                 <FaRegSun className="w-6 h-6" />
             </button>
             <button
-                className={`absolute top-1 right-0.5 w-9 h-9 rounded-full flex items-center justify-center transition-all
+                className={`absolute right-0.5 w-9 h-9 rounded-full flex items-center justify-center transition-all
                     ${theme === "dark" ? "" : "text-brightSubDefault"}
                     `}
                 onClick={() => {

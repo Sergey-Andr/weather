@@ -25,7 +25,7 @@ const SearchCity = (): ReactElement => {
     if (data?.data.length) {
         const { name, state, country } = data.data[0];
         place = `${name ? name + ", " : ""}${state ? state + ", " : ""}${country ?? ""}`;
-    }
+    } else if (data && data.data.length === 0) place = "No Data";
 
     const handleInputChange = (name: string, delay: number) => {
         setCityName(name);
@@ -40,10 +40,10 @@ const SearchCity = (): ReactElement => {
         <div className="relative mr-20">
             <div className="relative w-fit h-fit">
                 {zoomIcon(
-                    `w-5 h-5 absolute top-2.5 left-4 ${theme === "dark" ? "stroke-white" : "stroke-black"}`,
+                    `w-5 h-5 absolute top-3 left-4 ${theme === "dark" ? "stroke-white" : "stroke-black"}`,
                 )}
                 <Input
-                    className={`w-[320px] h-[28px] font-medium rounded-full border-none p-5 pl-11 ${theme === "dark" ? "bg-subDefault text-[#707070]" : "bg-subDefaultBrightMode text-textBrightMode"}`}
+                    className={`w-80 h-7 font-medium rounded-full border-2 p-5 pl-11 placeholder:text-[#707070] ${theme === "dark" ? "bg-subDefault text-white border-skeleton" : "bg-subDefaultBrightMode text-black border-skeletonBrightMode"}`}
                     placeholder="Search city..."
                     value={cityName}
                     onChange={(e) => handleInputChange(e.target.value, 300)}
@@ -60,7 +60,7 @@ const SearchCity = (): ReactElement => {
                     }}
                 />
                 <FaXmark
-                    className={`absolute top-1 right-1 w-8 h-8 p-2 cursor-pointer rounded-full
+                    className={`absolute top-2 right-2 w-8 h-8 p-2 cursor-pointer rounded-full
                      ${cityName ? "opacity-100" : "hidden"} hover:bg-brightSubDefault 
                      ${theme === "dark" ? "fill-white" : "fill-textBrightMode"}
                     `}

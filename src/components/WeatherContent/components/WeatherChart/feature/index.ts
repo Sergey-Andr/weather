@@ -13,7 +13,7 @@ export const options = ({
 }) => {
     return {
         chart: {
-            height: 245,
+            height: 208,
             type: "column",
             backgroundColor: "transparent",
         },
@@ -23,14 +23,6 @@ export const options = ({
             },
             series: {
                 borderRadius: "50%",
-                dataLabels: {
-                    enabled: true,
-                    style: {
-                        color: theme === "dark" ? "#c5c5c5" : "#646464",
-                        fontSize: "14px",
-                        textOutline: "none",
-                    },
-                },
             },
             vector: {
                 borderRadius: "50%",
@@ -48,37 +40,40 @@ export const options = ({
             labels: {
                 style: {
                     fontSize: "16px",
-                    color: "#646464",
+                    letterSpacing: "0.5px",
+                    color: theme === "dark" ? "#646464" : "#000",
                 },
             },
             gridLineWidth: 0,
-            step: 1,
         },
         yAxis: {
             visible: true,
-            gridLineWidth: 0,
+            gridLineWidth: 1,
+            gridLineColor: theme === "dark" ? "#323232" : "#A7C4D4",
+            labels: {
+                style: {
+                    color: theme === "dark" ? "#646464" : "#000",
+                },
+            },
             title: "",
         },
         legend: {
             enabled: false,
         },
         tooltip: {
-            enabled: false,
+            formatter: function (this: any) {
+                if (temp === "C") {
+                    return this.y ? `+${this.y}°` : `-${this.y}°`;
+                } else {
+                    return this.y ? `${this.y}°` : `${this.y}°`;
+                }
+            },
         },
         series: [
             {
                 pointWidth: 12,
                 color: color,
                 data: charts,
-                dataLabels: {
-                    formatter: function (this: any) {
-                        if (temp === "C") {
-                            return this.y ? `+${this.y}°` : `-${this.y}°`;
-                        } else {
-                            return this.y ? `${this.y}°` : `${this.y}°`;
-                        }
-                    },
-                },
             },
         ],
     };

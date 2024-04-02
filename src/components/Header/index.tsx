@@ -11,7 +11,7 @@ const Header = (): ReactElement => {
     const searchedCity = selectSearchedCity();
     const theme = selectTheme();
     return (
-        <div className="pt-4 mb-4 flex items-center justify-between">
+        <div className="pt-4 mb-12 flex items-center justify-between">
             <div className="flex items-center">
                 <img src={logo.default} alt="logo" className="w-[220px] mr-8" />
 

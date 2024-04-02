@@ -18,14 +18,14 @@ const SelectLayer = (): ReactElement => {
     const layer = selectMapLayers();
     return (
         <div
-            className={`w-[200px] ml-auto mb-4 border-2 ${theme === "dark" ? "bg-subDefault border-skeleton text-white" : "bg-subDefaultBrightMode text-black border-skeletonBrightMode"} rounded-full`}
+            className={`w-52 ml-auto mb-4 border-2 ${theme === "dark" ? "bg-subDefault border-skeleton text-white" : "bg-subDefaultBrightMode text-black border-skeletonBrightMode"} rounded-full`}
         >
             <Select value={layer} onValueChange={(e) => setMapLayer(e)}>
-                <SelectTrigger className="border-none">
+                <SelectTrigger className="border-none font-semibold">
                     <SelectValue placeholder={`Map layers`} />
                 </SelectTrigger>
                 <SelectContent
-                    className={`bg-subDefault ${theme === "dark" ? "bg-subDefault border-skeleton text-white" : "bg-subDefaultBrightMode border-skeletonBrightMode"} rounded-2xl top-2`}
+                    className={`bg-subDefault border-2 font-semibold ${theme === "dark" ? "bg-subDefault border-skeleton text-white" : "bg-subDefaultBrightMode border-skeletonBrightMode"} rounded-2xl top-2`}
                 >
                     <SelectItem value="clouds_new">Clouds</SelectItem>
                     <SelectItem value="precipitation_new">

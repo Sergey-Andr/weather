@@ -19,11 +19,11 @@ const WeatherCard: FC<IWeatherCard> = ({ day }): ReactElement => {
 
     return (
         <div
-            className={`${day.dt_txt.slice(8, 10) === activeDay ? "w-[285px]" : "w-[80px]"} h-full  transition-all duration-500 overflow-hidden`}
+            className={`${day.dt_txt.slice(8, 10) === activeDay ? "w-72" : "w-20"} h-full transition-all duration-500 overflow-hidden`}
         >
             {day.dt_txt.slice(8, 10) !== activeDay ? (
                 <div
-                    className={`flex flex-col items-center justify-between w-full h-full  ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} rounded-3xl py-3 cursor-pointer transition-all`}
+                    className={`flex flex-col items-center justify-between w-full h-full  ${theme === "dark" ? "bg-subDefault" : "bg-subDefaultBrightMode"} rounded-3xl py-3 cursor-pointer`}
                     onClick={() => {
                         setActiveDay(day.dt_txt.slice(8, 10));
                     }}
@@ -31,7 +31,7 @@ const WeatherCard: FC<IWeatherCard> = ({ day }): ReactElement => {
                     <Passive day={day} />
                 </div>
             ) : (
-                <div className={`h-full transition-all duration-1000`}>
+                <div className={`h-full`}>
                     <Active day={day} />
                 </div>
             )}
