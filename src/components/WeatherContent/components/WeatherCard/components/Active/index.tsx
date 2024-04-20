@@ -12,7 +12,7 @@ interface IActive {
 const Active: FC<IActive> = ({ day }): ReactElement => {
     const time = selectSettingsTime();
     const currentTime = moment().format(time === "12" ? "h:mm A" : "HH:mm");
-    const dayWeek = moment(day.dt_txt).format("d dddd");
+    const dayWeek = moment(day.dt_txt).format("DD dddd");
 
     return (
         <>
